@@ -28,7 +28,7 @@ def smiles_to_descriptors(smiles):
 
 if __name__ == "__main__":
     # Load dataset
-    df = pd.read_csv("./src/surfpro_imputed.csv").dropna(subset=["SMILES", "AW_ST_CMC"])
+    df = pd.read_csv("./surfpro_imputed.csv").dropna(subset=["SMILES", "AW_ST_CMC"])
 
     # Convert SMILES → features
     fp_features = np.array([smiles_to_morgan(s) for s in df["SMILES"]])
@@ -82,3 +82,4 @@ if __name__ == "__main__":
     test_rmse = np.sqrt(mean_squared_error(y_test, y_pred_test))
 
     print(f"\n📊 Final Test R²: {test_r2:.4f}, Test RMSE: {test_rmse:.4f}")
+

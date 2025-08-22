@@ -81,5 +81,10 @@ if __name__ == "__main__":
     test_r2 = r2_score(y_test, y_pred_test)
     test_rmse = np.sqrt(mean_squared_error(y_test, y_pred_test))
 
-    print(f"\n📊 Final Test R²: {test_r2:.4f}, Test RMSE: {test_rmse:.4f}")
+    print(f" Final Test R²: {test_r2:.4f}, Test RMSE: {test_rmse:.4f}")
+    
+    with open('results.txt', 'w') as f:
+        f.write(f"R²: {test_r2:.4f}\n")
+        f.write(f"RMSE: {test_rmse:.4f}\n")
+
 
